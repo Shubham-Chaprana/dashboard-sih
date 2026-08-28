@@ -1,0 +1,271 @@
+h1,
+/* ============================================================
+   Color reference (kept here so palette changes happen in one
+   place — do not hardcode these hexes anywhere else)
+   background base:      #10140F
+   panel background:     #161915
+   panel background (translucent, for overlays): #161915ee
+   panel border:         #262A22
+   text primary:         #E7E5DE
+   text muted:           #8A8A82
+   text faint:           #4A4D45
+   accent (flare/amber): #EF9F27
+   ============================================================ */
+
+   .dashboard-root {
+    font-family: 'Inter', system-ui, sans-serif;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #10140F;
+    overflow: hidden;
+    color: #E7E5DE;
+  }
+  
+  /* map section start ( to be replaced by actual map once done) */
+  .map-placeholder {
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(0deg, #141810 0px, #141810 1px, #10140F 1px, #10140F 40px),
+      repeating-linear-gradient(90deg, #141810 0px, #141810 1px, #10140F 1px, #10140F 40px);
+  }
+  
+  .map-placeholder-label {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: #4A4D45;
+  }
+  
+  .map-pin {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #10140F;
+    transition: box-shadow 0.15s;
+  }
+  
+  .map-pin--dim {
+    opacity: 0.15;
+    cursor: default;
+  }
+  
+  .map-pin--active {
+    opacity: 1;
+    cursor: pointer;
+  }
+  /* map section  end  */
+  
+  
+  /* ---------- Top bar ---------- */
+  .topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(#10140Fdd, transparent);
+  }
+  
+  .topbar-eyebrow {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #8A8A82;
+    text-transform: uppercase;
+  }
+  
+  .topbar-title {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  
+  .topbar-actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .topbar-btn {
+    padding: 7px 12px;
+    border-radius: 8px;
+    border: 1px solid #2A2E27;
+    background: #161915;
+    color: #E7E5DE;
+    font-size: 12.5px;
+    cursor: pointer;
+  }
+  
+  .topbar-btn--active {
+    background: #1F2419;
+  }
+  
+  .topbar-count {
+    padding: 7px 12px;
+    border-radius: 8px;
+    background: #161915;
+    border: 1px solid #2A2E27;
+    font-size: 12.5px;
+  }
+  
+  /* ---------- Filter overlay ---------- */
+  .filter-panel {
+    position: absolute;
+    top: 74px;
+    left: 20px;
+    width: 220px;
+    background: #161915ee;
+    border: 1px solid #262A22;
+    border-radius: 10px;
+    padding: 14px;
+    backdrop-filter: blur(6px);
+  }
+  
+  .filter-label {
+    font-size: 12px;
+    color: #8A8A82;
+    margin-bottom: 6px;
+  }
+  
+  .filter-checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    cursor: pointer;
+  }
+  
+  .filter-checkbox-row--inactive {
+    opacity: 0.4;
+  }
+  
+  .filter-swatch {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  
+  /* ---------- Stats overlay (bottom strip) ---------- */
+  .stats-strip {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 12px;
+    transition: right 0.2s;
+  }
+  
+  .stats-card {
+    background: #161915ee;
+    border: 1px solid #262A22;
+    border-radius: 10px;
+    padding: 10px 14px;
+    backdrop-filter: blur(6px);
+  }
+  
+  .stats-card-title {
+    font-size: 11.5px;
+    color: #8A8A82;
+    margin-bottom: 4px;
+  }
+  
+  /* ---------- Incident drawer ---------- */
+  .drawer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 336px;
+    background: #161915;
+    border-left: 1px solid #262A22;
+    padding: 20px;
+    transition: transform 0.22s ease;
+    overflow-y: auto;
+  }
+  
+  .drawer--closed {
+    transform: translateX(100%);
+  }
+  
+  .drawer--open {
+    transform: translateX(0);
+  }
+  
+  .drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .drawer-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .drawer-close-btn {
+    background: none;
+    border: none;
+    color: #8A8A82;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  
+  .drawer-field-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+  
+  .drawer-field-label {
+    color: #8A8A82;
+  }
+  
+  .drawer-fields {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .ai-brief {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #1A1611;
+    border: 1px solid #3A2E1A;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #D8C9A8;
+  }
+  
+  .ai-brief-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #EF9F27;
+  }
+  
+  .ai-brief--placeholder {
+    border-style: dashed;
+    color: #8A8A82;
+  }
+  
+  .ai-brief--placeholder .ai-brief-title {
+    color: #8A8A82;
+  }
+  
+  /* ---------- Badge ---------- */
+  .badge {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
